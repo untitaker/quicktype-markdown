@@ -1,6 +1,6 @@
 import * as fs from "fs";
 
-import { ArrayType, matchType, Type, ClassProperty, Sourcelike, modifySource, Name, quicktype, InputData, JSONSchemaInput, TypeScriptTargetLanguage, TypeScriptRenderer, RenderContext, getOptionValues, tsFlowOptions, ClassType } from "quicktype-core";
+import { ArrayType, matchType, Type, ClassProperty, Sourcelike, modifySource, Name, quicktype, InputData, JSONSchemaInput, TypeScriptTargetLanguage, TypeScriptRenderer, RenderContext, getOptionValues, tsFlowOptions, ClassType } from "quicktype/dist/quicktype-core";
 
 
 // UnionType is not exported

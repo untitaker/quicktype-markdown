@@ -17,7 +17,8 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "quicktype-core": "^6"
+    "@types/urijs": "^1.19.8",
+    "quicktype": "untitaker/quicktype#patch-1"
   },
   "files": [
     "package.json",
@@ -25,6 +26,7 @@
     "dist/**"
   ],
   "volta": {
-    "node": "10.20.1"
+    "node": "10.20.1",
+    "yarn": "1.22.4"
   }
 }
