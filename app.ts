@@ -1,26 +1,8 @@
 #!/usr/bin/env node
 import * as fs from "fs";
 
-import { EnumType, ArrayType, matchType, Type, ClassProperty, Sourcelike, modifySource, Name, quicktype, InputData, JSONSchemaInput, TypeScriptTargetLanguage, TypeScriptRenderer, RenderContext, getOptionValues, tsFlowOptions, ClassType } from "quicktype/dist/quicktype-core";
+import { singleWord, parenIfNeeded, UnionType, MultiWord, EnumType, ArrayType, matchType, Type, ClassProperty, Sourcelike, modifySource, Name, quicktype, InputData, JSONSchemaInput, TypeScriptTargetLanguage, TypeScriptRenderer, RenderContext, getOptionValues, tsFlowOptions, ClassType } from "quicktype/dist/quicktype-core";
 
-
-// UnionType is not exported
-function isUnionType(t: any): boolean {
-    return t.kind == "union";
-}
-
-// not exposed from quicktype, redefined
-function singleWord(...source: Sourcelike[]): any { // MultiWord
-    return { source, needsParens: false };
-}
-
-// not exposed from quicktype, redefined
-function parenIfNeeded({ source, needsParens }: any): Sourcelike { // MultiWord
-    if (needsParens) {
-        return ["(", source, ")"];
-    }
-    return source;
-}
 
 class MarkdownTargetLanguage extends TypeScriptTargetLanguage {
     protected makeRenderer(
@@ -79,7 +61,7 @@ class MarkdownRenderer extends TypeScriptRenderer {
                 const itemType = this.sourceFor(arrayType.items);
                 if (
                     (arrayType.items instanceof ArrayType) ||
-                    isUnionType(arrayType.items)
+                    (arrayType.items instanceof UnionType)
                 ) {
                     return singleWord(["Array&lt;", itemType.source, "&gt;"]);
                 } else {
