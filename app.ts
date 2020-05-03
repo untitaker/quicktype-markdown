@@ -105,7 +105,7 @@ class MarkdownRenderer extends TypeScriptRenderer {
   }
 
   protected emitClassPropertiesMarkdown(c: ClassType): void {
-    this.emitLine("### Properties");
+    this.emitLine("**Properties:**");
     this.emitLine("");
 
     this.forEachClassProperty(c, "none", (name, jsonName, p) => {
@@ -132,7 +132,7 @@ class MarkdownRenderer extends TypeScriptRenderer {
   }
 
   protected emitEnumVariantsMarkdown(e: EnumType): void {
-    this.emitLine("### Variants");
+    this.emitLine("**Variants:**");
     this.emitLine("");
 
     this.forEachEnumCase(e, "none", (_name, jsonName) => {
