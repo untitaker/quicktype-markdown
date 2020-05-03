@@ -37,7 +37,7 @@ class MarkdownTargetLanguage extends TypeScriptTargetLanguage {
 
 class MarkdownRenderer extends TypeScriptRenderer {
     private emitTypeHeaderMarkdown(t: Type, name: Name) {
-        this.emitLine("<a name='typedef-", name, "'>");
+        this.emitLine("<a name='typedef-", name, "'></a>");
         this.emitLine("## `", name, "`");
         this.emitLine("");
         this.emitDescription(this.descriptionForType(t));
