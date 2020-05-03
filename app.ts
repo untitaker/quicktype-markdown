@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import * as fs from "fs";
 
 import { ArrayType, matchType, Type, ClassProperty, Sourcelike, modifySource, Name, quicktype, InputData, JSONSchemaInput, TypeScriptTargetLanguage, TypeScriptRenderer, RenderContext, getOptionValues, tsFlowOptions, ClassType } from "quicktype/dist/quicktype-core";
