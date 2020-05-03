@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import * as fs from "fs";
 
-import { ArrayType, matchType, Type, ClassProperty, Sourcelike, modifySource, Name, quicktype, InputData, JSONSchemaInput, TypeScriptTargetLanguage, TypeScriptRenderer, RenderContext, getOptionValues, tsFlowOptions, ClassType } from "quicktype/dist/quicktype-core";
+import { EnumType, ArrayType, matchType, Type, ClassProperty, Sourcelike, modifySource, Name, quicktype, InputData, JSONSchemaInput, TypeScriptTargetLanguage, TypeScriptRenderer, RenderContext, getOptionValues, tsFlowOptions, ClassType } from "quicktype/dist/quicktype-core";
 
 
 // UnionType is not exported
@@ -51,9 +51,7 @@ class MarkdownRenderer extends TypeScriptRenderer {
 
     private emitEnumMarkdown(c: any, enumName: Name) {  // EnumType export missing
         this.emitTypeHeaderMarkdown(c, enumName);
-        this.emitLine("```");
-        this.emitEnum(c, enumName);
-        this.emitLine("```");
+        this.emitEnumVariantsMarkdown(c);
     }
 
     protected sourceFor(t: Type): any { // MultiWord export missing
@@ -119,6 +117,15 @@ class MarkdownRenderer extends TypeScriptRenderer {
                 this.emitLine("");
             }
         });
+    }
+
+    protected emitEnumVariantsMarkdown(e: EnumType): void {
+        this.emitLine("### Variants");
+        this.emitLine("");
+
+        this.forEachEnumCase(e, "none", (_name, jsonName) => {
+            this.emitLine('* `"', jsonName, '"`');
+        })
     }
 
     protected emitDescription(description: Sourcelike[] | undefined): void {
