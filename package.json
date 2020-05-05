@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@types/urijs": "^1.19.8",
-    "quicktype": "untitaker/quicktype#patch-1"
+    "quicktype": "quicktype/quicktype"
   },
   "files": [
     "package.json",
