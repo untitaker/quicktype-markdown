@@ -5,7 +5,7 @@ This is a very simple wrapper around [quicktype](https://github.com/quicktype/qu
 ## Usage
 
 ```
-npm start SchemaName schema.json
+yarn start SchemaName schema.json
 ```
 
 ## License
