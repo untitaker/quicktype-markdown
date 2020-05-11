@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@types/urijs": "^1.19.8",
-    "quicktype": "quicktype/quicktype"
+    "quicktype": "quicktype/quicktype#no-flatten-class-unions"
   },
   "files": [
     "package.json",
