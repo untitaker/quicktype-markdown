@@ -733,9 +733,9 @@ pump@^3.0.0:
     end-of-stream "^1.1.0"
     once "^1.3.1"
 
-quicktype@quicktype/quicktype#no-flatten-class-unions:
+quicktype@untitaker/quicktype#dist-no-flatten-class-unions:
   version "15.0.0"
-  resolved "https://codeload.github.com/quicktype/quicktype/tar.gz/431c341c1f2e9daa039eccb4f75814143382af5e"
+  resolved "https://codeload.github.com/untitaker/quicktype/tar.gz/5fd2ea1caace6bd15b8f0d9a0cc9092967f6a62f"
   dependencies:
     "@mark.probst/typescript-json-schema" "~0.32.0"
     "@mark.probst/unicode-properties" "~1.1.0"
