@@ -56,25 +56,19 @@ class MarkdownRenderer extends TypeScriptRenderer {
     this.emitClassPropertiesMarkdown(c);
   }
 
-  private emitEnumMarkdown(c: any, enumName: Name) {
-    // EnumType export missing
+  private emitEnumMarkdown(c: EnumType, enumName: Name) {
     this.emitTypeHeaderMarkdown(c, enumName);
     this.emitEnumVariantsMarkdown(c);
   }
 
-  protected sourceFor(t: Type): any {
-    // MultiWord export missing
+  protected sourceFor(t: Type): MultiWord {
     // Change to TS impl: Add cross-references
     if (["class", "object", "enum"].indexOf(t.kind) >= 0) {
       const name = this.nameForNamedType(t);
-      return {
-        // use singleWord instead
-        source: ["<a href='#typedef-", name, "'>", name, "</a>"],
-        needsParens: false,
-      };
+      return singleWord(["<a href='#typedef-", name, "'>", name, "</a>"]);
     }
 
-    return matchType<any>( // MultiWord export missing
+    return matchType<MultiWord>(
       t,
       // Those should all just be handled like in ts target
       (_anyType) => super.sourceFor(t),
